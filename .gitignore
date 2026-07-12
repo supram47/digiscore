@@ -1,0 +1,17 @@
+# Alt projeler — kendi git repolarına sahip
+dijital_olgunluk_platformu/
+metricool-carousel-agent/
+kredi-kart-analiz/
+
+# Hassas ve geçici dosyalar
+kart_data.txt
+*.xlsx
+*.docx
+*.env
+*.env.*
+claude-usage/
+
+# Sistem
+=2.0.0
+.DS_Store
+Thumbs.db
