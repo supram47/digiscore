@@ -547,6 +547,55 @@ body {
   margin-bottom: 10px;
   display: none;
 }
+/* ── Privacy Modal ─────────────────────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,35,66,.55);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  max-width: 540px;
+  width: 100%;
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--sh-lg);
+}
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-head h3 { font-size: 1rem; font-weight: 800; color: var(--navy); letter-spacing: -.02em; }
+.modal-close {
+  width: 30px; height: 30px;
+  border: none; background: var(--bg);
+  border-radius: 8px; cursor: pointer;
+  font-size: 1rem; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: var(--border); }
+.modal-body {
+  overflow-y: auto;
+  padding: 18px 20px 22px;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+.modal-body h4 { font-size: 0.85rem; font-weight: 700; color: var(--navy); margin: 14px 0 5px; }
+.modal-body p { margin-bottom: 8px; }
+.modal-body ul { padding-left: 18px; margin-bottom: 8px; }
+.modal-body ul li { margin-bottom: 3px; }
 
 /* ── RESULT ──────────────────────────────────────────────────────────── */
 .result-header {
@@ -836,7 +885,7 @@ footer a { color: #94A3B8; text-underline-offset: 2px; }
         <input type="checkbox" id="kvkk-check">
         <label for="kvkk-check">
           Kişisel verilerimin DigiScore hizmetini iyileştirme ve bilgilendirme amacıyla işlenmesine onay veriyorum.
-          <a href="https://suphiramazanoglu.com/gizlilik" target="_blank">Gizlilik Politikası</a>
+          <a href="#" onclick="openPrivacy(); return false;">Gizlilik Politikası</a>
         </label>
       </div>
 
@@ -896,14 +945,59 @@ footer a { color: #94A3B8; text-underline-offset: 2px; }
 
 </div>
 
+<!-- Privacy Modal -->
+<div class="modal-overlay" id="privacy-modal" onclick="if(event.target===this)closePrivacy()">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Gizlilik Politikası</h3>
+      <button class="modal-close" onclick="closePrivacy()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Veri Sorumlusu:</strong> Suphi Ramazanoğlu (EVOLIXO / Fonksiyon 360)<br>
+      <strong>İletişim:</strong> info@suphiramazanoglu.com</p>
+
+      <h4>Toplanan Veriler</h4>
+      <p>DigiScore hızlı testi sırasında yalnızca aşağıdaki veriler toplanır:</p>
+      <ul>
+        <li>Ad Soyad (opsiyonel)</li>
+        <li>E-posta adresi</li>
+        <li>Test yanıtları (8 boyut puanları)</li>
+        <li>Tarayıcı türü ve tahmini konum (ülke düzeyinde)</li>
+      </ul>
+
+      <h4>Kullanım Amacı</h4>
+      <ul>
+        <li>DigiScore sonuçlarınızı size iletmek</li>
+        <li>Dijital dönüşüm içerikleri ve hizmetler hakkında bilgilendirmek</li>
+        <li>Platform kalitesini iyileştirmek</li>
+      </ul>
+
+      <h4>Saklama Süresi</h4>
+      <p>Verileriniz, silinmesini talep etmediğiniz sürece 2 yıl boyunca güvenli şekilde saklanır.</p>
+
+      <h4>Haklarınız (KVKK Madde 11)</h4>
+      <p>Verilerinize erişme, düzeltme, silme veya işlenmesini durdurma hakkına sahipsiniz. Talepleriniz için: <strong>info@suphiramazanoglu.com</strong></p>
+
+      <h4>Üçüncü Taraf Paylaşım</h4>
+      <p>Verileriniz hiçbir koşulda üçüncü taraflarla ticari amaçla paylaşılmaz. Altyapı sağlayıcısı olarak Supabase (ABD) kullanılmaktadır; GDPR standart maddeleri geçerlidir.</p>
+
+      <p style="margin-top:14px;color:var(--muted);font-size:.75rem;">Son güncelleme: Temmuz 2026</p>
+    </div>
+  </div>
+</div>
+
 <footer>
   <strong style="color:#64748B">DigiScore</strong> by EVOLIXO &nbsp;·&nbsp;
   Suphi Ramazanoğlu — Digital Transformation Consultant &nbsp;·&nbsp;
-  <a href="https://suphiramazanoglu.com/gizlilik">Gizlilik</a> &nbsp;·&nbsp;
-  <a href="https://suphiramazanoglu.com">suphiramazanoglu.com</a>
+  <a href="#" onclick="openPrivacy(); return false;">Gizlilik</a> &nbsp;·&nbsp;
+  <a href="https://suphiramazanoglu.com" target="_blank">suphiramazanoglu.com</a>
 </footer>
 
 <script>
+function openPrivacy()  { document.getElementById('privacy-modal').classList.add('open'); }
+function closePrivacy() { document.getElementById('privacy-modal').classList.remove('open'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePrivacy(); });
+
 // ── CONFIG ────────────────────────────────────────────────────────────
 const SUPABASE_URL  = 'https://vrdoiqeyhpxzzyrjxrmm.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZG9pcWV5aHB4enp5cmp4cm1tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMjA5NDAsImV4cCI6MjA5NjU5Njk0MH0.-mm_Hvi3G8JBUdLTaUd1A1SANCCgKMQLJ3L-6UMkkm4';
