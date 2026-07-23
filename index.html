@@ -714,6 +714,15 @@ var SCALE = [
   { v: 4, short: '4', label: 'Buyuk\nolcude var' },
   { v: 5, short: '5', label: 'Kurumsal\nstandart' }
 ];
+var Q_SCALES = [
+  ['Hayir','Sadece\nliderlik','Bazi\nekipler','Cogunluk','Tum\nekip'],
+  ['Entegre\ndegil','Minimal','Kismi','Buyuk\nolcude','Tam\nentegre'],
+  ['Hic','Nadiren','Bazen','Siklikla','Her\nzaman'],
+  ['Hicbiri','Az\nkismi','Yarisi','Buyuk\nkismi','Tamami'],
+  ['Aylar\nsonra','Haftalar','Gunler','Saatler','Anlik'],
+  ['Hic','Nadiren','Bazen','Siklikla','Her\nzaman'],
+  ['Hayir','Denendi','Kismi','Buyuk\nolcude','Tamamen']
+];
 
 var LEVELS = [
   { min: 1.0, max: 1.8, name: 'Seviye 1 - Baslangic',  icon: '&#128308;', color: '#E74C3C', desc: 'Dijital donusum farkindaligi dusuk. Acil mudahale gerekiyor.', levelClass: 'level-red' },
@@ -772,11 +781,12 @@ function showQuestion(index, direction) {
 
   function buildCardHTML() {
     var prevAnswer = answers[q.key];
-    var optionsHtml = SCALE.map(function(s) {
+    var qLabels = Q_SCALES[index] || SCALE.map(function(s){ return s.label; });
+    var optionsHtml = SCALE.map(function(s, i) {
       var sel = prevAnswer === s.v ? ' selected' : '';
       return '<button class="opt-btn' + sel + '" onclick="selectAnswer(\'' + q.key + '\',' + s.v + ',this)">' +
              '<span class="opt-num">' + s.short + '</span>' +
-             '<span class="opt-label">' + s.label + '</span>' +
+             '<span class="opt-label">' + qLabels[i] + '</span>' +
              '</button>';
     }).join('');
     return '<div class="q-head">' +
