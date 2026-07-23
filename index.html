@@ -947,7 +947,7 @@ function showResult(email, name, score) {
   var lowest = QUESTIONS.reduce(function(a,b) {
     return (answers[a.key]||0) <= (answers[b.key]||0) ? a : b;
   });
-  document.getElementById('priority-title').textContent =
+  document.getElementById('priority-title').innerHTML =
     lowest.icon + ' ' + lowest.dim + ' (' + (answers[lowest.key]||0) + '/5)';
   document.getElementById('priority-text').textContent =
     'Bu boyuttaki acik dijital donusum hizinizi en cok etkileyen unsur. Asagida 30 dakikalik ucretsiz gorusmede bu alana ozel yol haritanizi olusturalim.';
