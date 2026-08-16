@@ -3,6 +3,10 @@
 Her Claude Code oturumu bu dosyayı okuyarak başlar.
 Aşağıdaki kurallar memory'den önce gelir; çelişki varsa burası kazanır.
 
+**Kanıt & içerik referans dosyaları (istatistik çelişkisinde bunlar kazanır):**
+- `proof.md` — tüm onaylı istatistikler, sertifikalar, ödüller (bu dizinde)
+- `C:\Users\Suphi Ramazanoğlu\OneDrive\1_Documents\1_Kariyer\1_1_CV_Kariyer\4_Linkedin\Linkedin\best_posts.md` — kanıtlanmış kazanan postlar, hook formülleri, yayın saati verileri
+
 ---
 
 ## Kim
@@ -32,7 +36,7 @@ Aşağıdaki kurallar memory'den önce gelir; çelişki varsa burası kazanır.
 
 ### DigiScore — Dijital Olgunluk Platformu
 ```
-C:\Users\supra\OneDrive\1_Documents\1_Kariyer\1_3_Triova_sirket\8_Triova_AI_agent\dijital_olgunluk_platformu\
+C:\Users\Suphi Ramazanoğlu\OneDrive\1_Documents\1_Kariyer\1_3_Triova_sirket\8_Triova_AI_agent\dijital_olgunluk_platformu\
 ```
 - **Durum:** v1.4 canlı, Faz 2 tamamlandı
 - **Port:** 8503 (Streamlit)
@@ -42,7 +46,7 @@ C:\Users\supra\OneDrive\1_Documents\1_Kariyer\1_3_Triova_sirket\8_Triova_AI_agen
 
 ### Carousel & LinkedIn İçerik Üretimi
 ```
-C:\Users\supra\OneDrive\1_Documents\1_Kariyer\1_2_suphiramazanoglu.com\Hedef kitle analizi\Metricool\metricool-carousel-agent\
+C:\Users\Suphi Ramazanoğlu\OneDrive\1_Documents\1_Kariyer\1_2_suphiramazanoglu.com\Hedef kitle analizi\Metricool\metricool-carousel-agent\
 ```
 - Brand dosyası: `brands/suphi-ramazanoglu/BRAND.md`
 - Render: `node .claude/skills/generate-carousel/render.js "export/<klasör>"`
@@ -93,6 +97,7 @@ C:\Users\supra\OneDrive\1_Documents\1_Kariyer\1_2_suphiramazanoglu.com\Hedef kit
 | HubSpot CRM | `mcp__bf8598c0__*` |
 | Canva tasarım | `mcp__c9058dc7__*` |
 | Gamma sunum | `mcp__446fc9f7__*` |
+| Canlı web arama / trend / rakip / sosyal medya verisi | `mcp__b915e6d6__search_engine`, `web_data_*` (LinkedIn, Instagram, TikTok, X, YouTube, Facebook, Reddit) — Bright Data, 12 Ağu 2026'da bağlandı, aylık 5.000 kredi ücretsiz havuz |
 
 **Öncelik sırası:** Göreve özgü MCP > Claude Browser (web) > Bash
 
@@ -111,25 +116,27 @@ Commit öncesi `git status` çalıştır, hassas dosya (.env, key) kontrolü yap
 ## Dil
 
 - **Türkçe** — konuşma, açıklama, strateji tartışmaları
-- **İngilizce** — LinkedIn/sosyal medya içerikleri (varsayılan), teknik terimler
-- Türkçe post istisnai (özel talep gerekir); varsayılan içerik dili **İngilizce**
+- **Türkçe** — LinkedIn/sosyal medya içerikleri (varsayılan, Ağu 2026'dan itibaren). Teknik terimler İngilizce kullanılabilir.
+- İngilizce post istisnai (özel talep gerektirir); varsayılan içerik dili artık **Türkçe**
 
 ---
 
 ## LinkedIn İçerik Şablonu
 
+**DİL: Türkçe (varsayılan, Ağu 2026'dan itibaren)**
+
 ```
 [Hook — tek satır, somut veya paradoksal]
 
-[2-3 satır bağlam — "I watched / We had / I saw"]
+[2-3 satır bağlam — "Gördüm / İzledim / Deneyimledim / Çalıştığım programlarda"]
 
 [Temel içgörü]
 
-[→ bullet points — max 3-4]
+[-> bullet points — max 3-4]
 
-[Kapanış sorusu]
+[Kapanış sorusu — sınırlı seçenekli, somut]
 
-[#DigitalTransformation #AgileTransformation #Leadership #ChangeManagement]
+[#DijitalDönüşüm #ÇevikDönüşüm #Liderlik #DeğişimYönetimi]
 ```
 
 Onaylı istatistikler: $20M+, 26 profesyonel, 4 ülke, %18 warranty, %20+ verimlilik, $4M program 3 hafta önde.
