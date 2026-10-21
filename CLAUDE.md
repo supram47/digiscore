@@ -52,8 +52,8 @@ C:\Users\Suphi Ramazanoğlu\OneDrive\1_Documents\1_Kariyer\1_2_suphiramazanoglu.
 - Render: `node .claude/skills/generate-carousel/render.js "export/<klasör>"`
 - Upload: `node scripts/upload-catbox.mjs "export/<klasör>"`
 - Metricool brandId: **6370980**, timezone: **Europe/Istanbul**
-- Planlama slotu: **Salı ve Perşembe 11:00**
-- createScheduledPost → **TEK çağrıda** facebook+instagram+linkedin birlikte
+- Planlama slotu (5 Ekim 2026'dan itibaren, platform başına haftada 1 post): **LinkedIn+Facebook Salı 11:00, Instagram Perşembe 11:00**
+- createScheduledPost → **İKİ ayrı çağrı**: LinkedIn+Facebook birlikte, Instagram ayrı (ayrı caption; tek çağrıda yalnızca bir caption yayınlanır, 14 Eylül 2026 bulgusu)
 
 ### Günlük Brifing (Make.com → HTML)
 - F360 mailler → outlook.office.com, Kişisel → outlook.live.com
@@ -97,7 +97,8 @@ C:\Users\Suphi Ramazanoğlu\OneDrive\1_Documents\1_Kariyer\1_2_suphiramazanoglu.
 | HubSpot CRM | `mcp__bf8598c0__*` |
 | Canva tasarım | `mcp__c9058dc7__*` |
 | Gamma sunum | `mcp__446fc9f7__*` |
-| Canlı web arama / trend / rakip / sosyal medya verisi | `mcp__b915e6d6__search_engine`, `web_data_*` (LinkedIn, Instagram, TikTok, X, YouTube, Facebook, Reddit) — Bright Data, 12 Ağu 2026'da bağlandı, aylık 5.000 kredi ücretsiz havuz |
+| Canlı web arama / trend / rakip / sosyal medya verisi | `mcp__b915e6d6__search_engine`, `web_data_*` (LinkedIn, Instagram, TikTok, X, YouTube, Facebook, Reddit) — Bright Data, aylık 5.000 kredi ücretsiz havuz |
+| Motion (görev/takvim otomasyonu) | ücretsiz plan |
 
 **Öncelik sırası:** Göreve özgü MCP > Claude Browser (web) > Bash
 
@@ -105,25 +106,18 @@ C:\Users\Suphi Ramazanoğlu\OneDrive\1_Documents\1_Kariyer\1_2_suphiramazanoglu.
 
 ## GitHub Sync Alışkanlığı
 
-Her önemli güncelleme sonrası **GitHub'a push et**. Repo:
-```
-github.com/supram47/dijital-olgunluk-platformu
-```
-Commit öncesi `git status` çalıştır, hassas dosya (.env, key) kontrolü yap.
+Her önemli güncelleme sonrası **GitHub'a push et** (repo: DigiScore bölümünde). Commit öncesi `git status` çalıştır, hassas dosya (.env, key) kontrolü yap.
 
 ---
 
 ## Dil
 
-- **Türkçe** — konuşma, açıklama, strateji tartışmaları
-- **Türkçe** — LinkedIn/sosyal medya içerikleri (varsayılan, Ağu 2026'dan itibaren). Teknik terimler İngilizce kullanılabilir.
-- İngilizce post istisnai (özel talep gerektirir); varsayılan içerik dili artık **Türkçe**
+- **Türkçe** — konuşma, strateji ve LinkedIn/sosyal medya içeriği (varsayılan, Ağu 2026'dan itibaren). Teknik terimler İngilizce olabilir.
+- İngilizce post istisnai, özel talep gerektirir
 
 ---
 
 ## LinkedIn İçerik Şablonu
-
-**DİL: Türkçe (varsayılan, Ağu 2026'dan itibaren)**
 
 ```
 [Hook — tek satır, somut veya paradoksal]
@@ -150,3 +144,15 @@ Onaylı istatistikler: $20M+, 26 profesyonel, 4 ülke, %18 warranty, %20+ veriml
 - Taslak/öneri için onay al, sonra uygula
 - Büyük değişikliklerde adım adım git; tek seferde her şeyi değiştirme
 - Gereksiz dosya oluşturma — mevcut dosyaları düzenle
+- Web/tarayıcı kontrolünde önce metin araçları (`get_page_text`, `read_page`, `find`); ekran görüntüsü yalnızca görsel doğrulama gerekiyorsa
+- Ajan/alt ajan raporları en fazla 10 satır; veritabanı listelemelerinde `where` filtresi ve `limit` kullan, tüm koleksiyonu dökme
+- Hesap içeren her teklif/rapor: toplamı alt kalemlerden yeniden topla ve doğrula, formülü yazmakla yetinme
+- Teslim edilecek her dosyayı (docx, görsel, rapor) göndermeden önce görsel olarak kontrol et — taşma, kesik metin, bozuk karakter var mı bak
+- Netleşmemiş rakam/varsayımı açıkça boş/işaretli bırak, uydurma; "bu alan X formülüyle hesaplanacak" gibi net not düş
+- n8n/otomasyon işlerinde: workflow'u yazmakla iş bitmiş sayılmaz, gerçek ortamda çalıştırıp sonucu göster; para/silme/dış mesaj gönderme gibi geri alınamaz adımlarda önce onay iste
+- Belirsiz "duruma göre değişir" cevabıyla kapatma — kararı hangi eşiğin/koşulun değiştireceğini söyle
+- Bilgiyi dağıtık maddeler halinde bırakma — neden, sonuç, seçenek, risk ve öneri arasındaki bağı kur, tek tek doğru ama birbirinden kopuk parçalar sunma
+- Sözleşme/teklif/dava metinlerinde feragat, ibra, kabul veya yeni yükümlülük doğuran ifadeleri özellikle işaretle — hak kaybı riski taşıyan dili sessizce geçirme
+- Gizli anahtar/credential asla düz metinde/kodda bırakma — n8n'de credential store kullan, PDF/dokümanlarda açık anahtar görürsen hemen uyar
+- Büyüme/pazarlama önerisi verirken önce birim ekonomisini göster (CAC, kâr marjı, başabaş noktası) — ciro veya görünürlük artışını otomatik kâr sanma
+- Kaynak/zaman kısıtlı kararlarda (hangi projeye öncelik, hangi kampanyaya bütçe) seçilmeyen alternatifin fırsat maliyetini de göster
